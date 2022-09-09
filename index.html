@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>WebSocket</title>
+</head>
+
+<body>
+<p id="output"></p>
+
+<script>
+  const loc = window.location;
+  console.log(loc);
+  let uri = 'ws:';
+
+  if (loc.protocol === 'https:') {
+    uri = 'wss:';
+  }
+  uri += '//' + loc.host;
+  uri += loc.pathname + 'ws';
+
+  ws = new WebSocket(uri)
+
+  ws.onopen = function() {
+    console.log('Connected')
+  }
+
+  ws.onmessage = function(evt) {
+    let out = document.getElementById('output');
+    out.innerHTML += evt.data + '<br>';
+  }
+
+</script>
+</body>
+
+</html>
