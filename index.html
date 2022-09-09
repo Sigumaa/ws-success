@@ -26,6 +26,10 @@
     console.log('Connected')
   }
 
+  ws.onclose = function() {
+    console.log('Disconnected')
+  }
+
   ws.onmessage = function(evt) {
     let out = document.getElementById('output');
     out.innerHTML += evt.data + '<br>';
