@@ -30,6 +30,7 @@ func ServeWs(c echo.Context) error {
 		_, msg, err := ws.ReadMessage()
 		if err != nil {
 			c.Logger().Error(err)
+			c.Logger().Info("Client disconnected")
 			break
 		}
 		rooms.Publish(msg)
