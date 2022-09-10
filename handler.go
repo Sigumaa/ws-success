@@ -20,7 +20,15 @@ func Connect(c echo.Context) error {
 	if err != nil {
 		c.Logger().Error(err)
 	}
-	return nil
+
+	for {
+		msg := <-C1
+		err = ws.WriteMessage(websocket.TextMessage, []byte(msg))
+		if err != nil {
+			c.Logger().Error(err)
+		}
+	}
+
 }
 
 //func Send(ws *websocket.Conn) error {
