@@ -13,7 +13,7 @@ func main() {
 	e := echo.New()
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
-	e.GET("/ws", Connect)
+	e.GET("/ws", ServeWs)
 	e.GET("/hello", Hello)
 	e.Logger.Fatal(e.Start(":1323"))
 }
