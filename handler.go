@@ -15,7 +15,6 @@ func ServeWs(c echo.Context) error {
 	if err != nil {
 		c.Logger().Error(err)
 	}
-	c.Logger().Info("Client connected")
 	defer func(ws *websocket.Conn) {
 		err := ws.Close()
 		if err != nil {
@@ -27,14 +26,16 @@ func ServeWs(c echo.Context) error {
 
 	rooms.AddClient(client)
 	for {
-		_, msg, err := ws.ReadMessage()
-		if err != nil {
-			c.Logger().Error(err)
-			c.Logger().Info("Client disconnected")
-			break
-		}
-		rooms.Publish(msg)
+		//
+		// _, msg, err := ws.ReadMessage()
+		// if err != nil {
+		// 	c.Logger().Error(err)
+		// 	break
+		// }
+		// ReadMessage() によって受け取ったメッセージを Publish() で配信する
+		msg := <-C1
+		rooms.Publish([]byte(msg))
 	}
 
-	return nil
+	// return nil
 }

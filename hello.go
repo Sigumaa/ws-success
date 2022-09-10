@@ -8,7 +8,7 @@ import (
 func Hello(c echo.Context) error {
 	// Write
 	go func() {
-		C1 <- "Hello, Channel!"
+		C1 <- "Hello が実行されました！"
 	}()
 	return c.String(http.StatusOK, "Hello, World!")
 }
