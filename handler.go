@@ -9,7 +9,7 @@ var (
 	upgrader = websocket.Upgrader{}
 )
 
-func connect(c echo.Context) error {
+func Connect(c echo.Context) error {
 	ws, err := upgrader.Upgrade(c.Response(), c.Request(), nil)
 	if err != nil {
 		return err
@@ -22,3 +22,6 @@ func connect(c echo.Context) error {
 	}
 	return nil
 }
+
+//func Send(ws *websocket.Conn) error {
+//}

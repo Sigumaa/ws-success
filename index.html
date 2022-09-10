@@ -9,8 +9,17 @@
 <body>
 <p id="output"></p>
 
+<input type="button" onclick="location.href='localhost:1323/hello' "value="送信!">
 <script>
-  uri = "ws://localhost:8080/ws";
+  const loc = window.location;
+  console.log(loc);
+  let uri = 'ws:';
+
+  if (loc.protocol === 'https:') {
+    uri = 'wss:';
+  }
+  uri += '//' + loc.host;
+  uri += loc.pathname + 'ws';
 
   ws = new WebSocket(uri)
 
