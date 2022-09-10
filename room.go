@@ -4,18 +4,17 @@ type Room struct {
 	Clients []*Client
 }
 
+//	type Client struct {
+//	   Ws *websocket.Conn
+//	}
+//
+// add new client to room
 func (room *Room) AddClient(client *Client) {
+	// type Room struct {
+	//	Clients []*Client
+	// }
+	// append client to room
 	room.Clients = append(room.Clients, client)
-}
-
-func (room *Room) GetClients() []Client {
-	var cs []Client
-
-	for _, client := range room.Clients {
-		cs = append(cs, *client)
-	}
-
-	return cs
 }
 
 func (room *Room) Publish(msg []byte) {
