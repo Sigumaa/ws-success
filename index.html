@@ -11,26 +11,23 @@
 <p id="output"></p>
 
 <script>
-  function sendMsg() {
-    let uri = 'ws://localhost:1323/ws';
 
+    let uri = 'ws://localhost:1323/ws';
     console.log("uri: " + uri);
     const ws = new WebSocket(uri);
-
     ws.onopen = function () {
       console.log('Connected')
-      ws.onmessage = function (evt) {
-        const out = document.getElementById('output');
-        out.innerHTML += evt.data + '<br>';
-      }
-
-      setInterval(function () {
-        ws.send('test');
-      }, 1000);
+    }
+    ws.onmessage = function (evt) {
+        console.log('Message: ' + evt.data)
+      const out = document.getElementById('output');
+      out.innerHTML += evt.data + '<br>';
     }
 
-
-  }
+    function sendMsg() {
+      ws.send('test');
+      console.log('send');
+    }
 </script>
 </body>
 
