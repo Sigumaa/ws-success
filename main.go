@@ -9,7 +9,6 @@ func main() {
 	e := echo.New()
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
-	e.Static("/", "./")
 	e.GET("/ws", connect)
 	e.GET("/hello", hello)
 	e.Logger.Fatal(e.Start(":1323"))
