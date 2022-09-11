@@ -14,7 +14,7 @@ func ChangeVolume(c echo.Context) error {
 		},
 	}
 	JSON <- res
-	return c.String(http.StatusOK, "ChangeVolume, World!")
+	return c.String(http.StatusOK, "ChangeVolumeが呼び出されました")
 }
 
 func MemoUpdate(c echo.Context) error {
@@ -25,7 +25,7 @@ func MemoUpdate(c echo.Context) error {
 		},
 	}
 	JSON <- res
-	return c.String(http.StatusOK, "MemoUpdate, World!")
+	return c.String(http.StatusOK, "MemoUpdateが呼び出されました")
 }
 
 func SpeakerChange(c echo.Context) error {
@@ -36,7 +36,7 @@ func SpeakerChange(c echo.Context) error {
 		},
 	}
 	JSON <- res
-	return c.String(http.StatusOK, "SpeakerChange, World!")
+	return c.String(http.StatusOK, "SpeakerChangeが呼び出されました")
 }
 
 func SceneChange(c echo.Context) error {
@@ -48,7 +48,7 @@ func SceneChange(c echo.Context) error {
 		},
 	}
 	JSON <- res
-	return c.String(http.StatusOK, "SceneChange, World!")
+	return c.String(http.StatusOK, "SceneChangeが呼び出されました")
 }
 
 func MessageUpdate(c echo.Context) error {
@@ -59,7 +59,7 @@ func MessageUpdate(c echo.Context) error {
 		},
 	}
 	JSON <- res
-	return c.String(http.StatusOK, "MessageUpdate, World!")
+	return c.String(http.StatusOK, "MessageUpdateが呼び出されました")
 }
 
 func Comments(c echo.Context) error {
@@ -73,5 +73,5 @@ func Comments(c echo.Context) error {
 		},
 	}
 	JSON <- res
-	return c.String(http.StatusOK, "Comments, World!")
+	return c.String(http.StatusOK, "Commentsが呼び出されました")
 }

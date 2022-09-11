@@ -16,7 +16,17 @@ func main() {
 
 	// Routes
 	e.GET("/ws", ServeWs)
-	e.GET("/hello", Hello)
+
+	// Send message to all clients
+	// e.GET("/hello", Hello)
+
+	// Send JSON to all clients
+	e.GET("/changeVolume", ChangeVolume)
+	e.GET("/memoUpdate", MemoUpdate)
+	e.GET("/speakerChange", SpeakerChange)
+	e.GET("/sceneChange", SceneChange)
+	e.GET("/messageUpdate", MessageUpdate)
+	e.GET("/Comments", Comments)
 
 	// Start server
 	e.Logger.Fatal(e.Start(":1323"))
