@@ -1,6 +1,10 @@
 package domain
 
-type WebSocketResponse[T any] struct {
+type WebSocketType interface {
+	SceneChange | ChangeVolume | SpeakerChange | MemoUpdate | MessageUpdate | Comments
+}
+
+type WebSocketResponse[T WebSocketType] struct {
 	Type    string `json:"type"`
 	Payload T      `json:"payload"`
 }

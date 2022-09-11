@@ -1,7 +1,6 @@
 package main
 
 import (
-	"github.com/Sigumaa/ws-success/model/domain"
 	"github.com/gorilla/websocket"
 	"github.com/labstack/echo/v4"
 	"net/http"
@@ -10,9 +9,10 @@ import (
 // upgrader は WebSocket のアップグレードを行うための構造体
 var upgrader = websocket.Upgrader{}
 var rooms = Room{}
+
 var (
 	C1   = make(chan string)
-	JSON = make(chan domain.WebSocketResponse[any])
+	JSON = make(chan any)
 )
 
 func ServeWs(c echo.Context) error {
