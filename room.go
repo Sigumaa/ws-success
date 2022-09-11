@@ -17,6 +17,7 @@ func (room *Room) AddClient(client *Client) {
 	room.Clients = append(room.Clients, client)
 }
 
+// PublishMSG メッセージを接続しているクライアントに送信する
 func (room *Room) PublishMSG(msg []byte) {
 	for _, client := range room.Clients {
 		err := client.Send(msg)
@@ -26,6 +27,7 @@ func (room *Room) PublishMSG(msg []byte) {
 	}
 }
 
+// PublishJSON JSONを接続しているクライアントに送信する
 func (room *Room) PublishJSON(json any) {
 	for _, client := range room.Clients {
 		err := client.SendJSON(json)

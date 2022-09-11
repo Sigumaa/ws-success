@@ -6,6 +6,7 @@ import (
 	"net/http"
 )
 
+// ChangeVolume 音量の更新を通知する
 func ChangeVolume(c echo.Context) error {
 	res := domain.WebSocketResponse[domain.ChangeVolume]{
 		Type: "CHANGE_VOLUME",
@@ -17,6 +18,7 @@ func ChangeVolume(c echo.Context) error {
 	return c.String(http.StatusOK, "ChangeVolumeが呼び出されました")
 }
 
+// MemoUpdate メモの更新を通知する
 func MemoUpdate(c echo.Context) error {
 	res := domain.WebSocketResponse[domain.MemoUpdate]{
 		Type: "MEMO_UPDATE",
@@ -28,6 +30,7 @@ func MemoUpdate(c echo.Context) error {
 	return c.String(http.StatusOK, "MemoUpdateが呼び出されました")
 }
 
+// SpeakerChange 発言者の変更を通知する
 func SpeakerChange(c echo.Context) error {
 	res := domain.WebSocketResponse[domain.SpeakerChange]{
 		Type: "SPEAKER_CHANGE",
@@ -39,6 +42,7 @@ func SpeakerChange(c echo.Context) error {
 	return c.String(http.StatusOK, "SpeakerChangeが呼び出されました")
 }
 
+// SceneChange シーンの変更を通知する
 func SceneChange(c echo.Context) error {
 	res := domain.WebSocketResponse[domain.SceneChange]{
 		Type: "SCENE_CHANGE",
@@ -51,6 +55,7 @@ func SceneChange(c echo.Context) error {
 	return c.String(http.StatusOK, "SceneChangeが呼び出されました")
 }
 
+// MessageUpdate メッセージの更新を通知する
 func MessageUpdate(c echo.Context) error {
 	res := domain.WebSocketResponse[domain.MessageUpdate]{
 		Type: "MESSAGE_UPDATE",
@@ -62,6 +67,7 @@ func MessageUpdate(c echo.Context) error {
 	return c.String(http.StatusOK, "MessageUpdateが呼び出されました")
 }
 
+// Comments コメントの更新を通知する
 func Comments(c echo.Context) error {
 	res := domain.WebSocketResponse[domain.Comments]{
 		Type: "COMMENTS",

@@ -11,7 +11,8 @@ var upgrader = websocket.Upgrader{}
 var rooms = Room{}
 
 var (
-	C1   = make(chan string)
+	// C1   = make(chan string)
+
 	JSON = make(chan any)
 )
 
