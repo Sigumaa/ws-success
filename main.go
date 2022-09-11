@@ -1,13 +1,9 @@
 package main
 
 import (
-	_ "github.com/gorilla/websocket"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
-
-// C1 is a channel
-var C1 = make(chan string)
 
 func main() {
 

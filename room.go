@@ -17,9 +17,18 @@ func (room *Room) AddClient(client *Client) {
 	room.Clients = append(room.Clients, client)
 }
 
-func (room *Room) Publish(msg []byte) {
+func (room *Room) PublishMSG(msg []byte) {
 	for _, client := range room.Clients {
 		err := client.Send(msg)
+		if err != nil {
+			return
+		}
+	}
+}
+
+func (room *Room) PublishJSON(json any) {
+	for _, client := range room.Clients {
+		err := client.SendJSON(json)
 		if err != nil {
 			return
 		}
