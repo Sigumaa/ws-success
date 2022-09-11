@@ -43,9 +43,9 @@ func ServeWs(c echo.Context) error {
 		// }
 
 		// msg に C1 から受け取ったメッセージを入れる
-		msg := <-C1
+		// msg := <-C1
 		// rooms に保存されている全てのクライアントにメッセージを送信する
-		rooms.PublishMSG([]byte(msg))
+		// rooms.PublishMSG([]byte(msg))
 
 		// json に JSON から受け取ったメッセージを入れる
 		json := <-JSON
